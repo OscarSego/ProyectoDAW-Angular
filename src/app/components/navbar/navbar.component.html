@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Proyecto 2º DAw</a>
+      <form [formGroup]="searchForm" (ngSubmit)="searchProduct()" class="d-flex">
+        <input formControlName="name" class="form-control me-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-primary my-2 my-sm-0 btn-rosa" type="submit">Search</button>
+      </form>
+      <button class="btn btn-pink ml-auto" (click)="logOut()" type="button">LogOut</button>
+    </div>
+</nav>
+
+

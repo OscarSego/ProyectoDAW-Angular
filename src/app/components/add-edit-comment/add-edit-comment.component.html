@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="row mt-3" >
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card text-white bg-secondary mb-3" style="max-width: 30rem;">
+            <div class="card-header text-center">{{operacion}}</div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="addComments()">
+                    <input formControlName="nombre" type="text" class="form-control" placeholder="Ingresar nombre">
+                        <span *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">El campo del nombre es necesario</span>
+                    <input formControlName="comentario" type="text" class="form-control mt-2" placeholder="Ingresar comentario">
+                        <span *ngIf="form.get('comentario')?.hasError('required') && form.get('comentario')?.touched">El campo del descripcion es necesario</span>
+                    <div class="row mt-2 text-center">
+                        <div class="col-lg-6">
+                            <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Aceptar</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button type="button" class="btn btn-secondary" routerLink="/comments">Volver</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
